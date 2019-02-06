@@ -9,12 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var magicBall: UIImageView!
+    var ballNumber : Int = 0
+    let ballFaceArray = ["ball1", "ball2", "ball3", "ball4", "ball5"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-
+    @IBAction func askButtonPressed(_ sender: UIButton) {
+        ballNumber = Int(arc4random_uniform(5))
+        
+        magicBall.image = UIImage(named: ballFaceArray[ballNumber])
+        
+        
+    }
+    
 }
 
