@@ -16,15 +16,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        randomFaceType()
     }
 
     @IBAction func askButtonPressed(_ sender: UIButton) {
+
+        randomFaceType()
+        
+    }
+    override func motionEnded(_ motion: UIEvent.EventSubtype,
+                              with event: UIEvent?){
+        randomFaceType()
+    }
+    func randomFaceType(){
         ballNumber = Int(arc4random_uniform(5))
         
         magicBall.image = UIImage(named: ballFaceArray[ballNumber])
-        
-        
     }
-    
+
 }
 
